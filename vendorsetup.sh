@@ -1,6 +1,5 @@
-	      export ALLOW_MISSING_DEPENDENCIES=true
+	export ALLOW_MISSING_DEPENDENCIES=true
         export LC_ALL="C"
-        export OF_SCREEN_H=2160
         export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
         export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
         export FOX_USE_BASH_SHELL=1
@@ -15,13 +14,13 @@
         export OF_MAINTAINER=UdyneOS
         export OF_ALLOW_DISABLE_NAVBAR=0
         export OF_CHECK_OVERWRITE_ATTEMPTS=1
-	      export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
-	      export OF_TWRP_COMPATIBILITY_MODE=1
-	      export OF_USE_TWRP_SAR_DETECT=1
+	export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
+	export OF_TWRP_COMPATIBILITY_MODE=1
+	export OF_USE_TWRP_SAR_DETECT=1
       	export OF_SKIP_MULTIUSER_FOLDERS_BACKUP=1
-	      export FOX_R11=1
-	      export OF_FORCE_DISABLE_DM_VERITY_FORCED_ENCRYPTION=1
-	      export OF_QUICK_BACKUP_LIST="/boot;/recovery;/data;/system;/vendor;/persist;modem;efs;"
+	export FOX_R11=1
+	export OF_FORCE_DISABLE_DM_VERITY_FORCED_ENCRYPTION=1
+	export OF_QUICK_BACKUP_LIST="/boot;/recovery;/data;/system;/vendor;/persist;modem;"
 
 add_lunch_combo twrp_RMX2195-eng
 add_lunch_combo twrp_RMX2195-userdebug
