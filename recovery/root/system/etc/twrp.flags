@@ -4,7 +4,7 @@
 
 # mount point    fstype     device                 device2                        flags
 # Storage Part
-/storage         f2fs		    /data/media/0								                          flags=display="Internal Storage";backup=1;usermrf;fsflags="bind";removable
+/storage         f2fs       /data/media/0                                         flags=display="Internal Storage";backup=1;usermrf;fsflags="bind";removable
 /metadata        ext4       /dev/block/bootdevice/by-name/metadata                flags=backup=1;display="Metadata"
 # Other Part
 /boot            emmc       /dev/block/bootdevice/by-name/boot                    flags=backup=1;flashimg=1
