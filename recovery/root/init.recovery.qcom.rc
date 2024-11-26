@@ -19,4 +19,3 @@ on init
     symlink /dev/binderfs/vndbinder /dev/vndbinder
     #Debugging
     setprop prepdecrypt.loglevel 2
-    setprop prepdecrypt.setpatch true
