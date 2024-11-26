@@ -57,7 +57,7 @@ BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 \
     service_locator.enable=1 \
     swiotlb=2048 \
     androidboot.init_fatal_reboot_target=recovery
-BOARD_KERNEL_IMAGE_NAME := image.gz
+BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_BOOT_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x00000000
@@ -71,7 +71,7 @@ TARGET_KERNEL_ARCH := arm64
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/image.gz
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtb
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo
 
