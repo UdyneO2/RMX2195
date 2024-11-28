@@ -3,11 +3,23 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 # mount point  fstype   device                             device2                    flags
-system                                                  /system                ext4    ro,barrier=1,discard                                                                              wait,logical,first_stage_mount
-system_ext                                              /system_ext            ext4    ro,barrier=1,discard                                                                              wait,logical,first_stage_mount
-product                                                 /product               ext4    ro,barrier=1,discard                                                                              wait,logical,first_stage_mount
-vendor                                                  /vendor                ext4    ro,barrier=1,discard                                                                              wait,logical,first_stage_mount
-/dev/block/bootdevice/by-name/userdata                  /data                  f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier,inlinecrypt      latemount,wait,resize,check,formattable,encryptable=ice,wrappedkey,quota,reservedsize=128M,sysfs_path=/sys/devices/platform/soc/1d84000.ufshc,checkpoint=fs
-/dev/block/by-name/metadata                             /metadata              ext4    noatime,nosuid,nodev,discard                                                                      wait,check,formattable,wrappedkey,first_stage_mount
-/dev/block/bootdevice/by-name/misc                      /misc                  emmc    defaults                                                                                          defaults
-/dev/block/bootdevice/by-name/persist                   /persist               ext4    noatime,nosuid,nodev,barrier=1                                                                    wait
+system                                                  /system                  ext4    ro,barrier=1                                 wait,logical,first_stage_mount,avb=vbmeta_system,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+product                                                 /product                 ext4    ro,barrier=1                                 wait,logical,first_stage_mount,avb=vbmeta_system
+vendor                                                  /vendor                  ext4    ro,barrier=1                                 wait,logical,first_stage_mount,avb=vbmeta_vendor
+#ifdef VENDOR_EDIT
+#Haoran.Zhang@PSW.TECH.Euclid.2221709, 2019/08/05, Modify for enable super partition
+oppo_product                                            /my_product            ext4    ro,barrier=1,discard                               wait,logical,first_stage_mount,nofail,avb=vbmeta_system
+engineering                                             /my_engineering        ext4    ro,barrier=1,discard                                 wait,logical,first_stage_mount,nofail,avb=vbmeta_system
+preload_common                                          /common_preload          ext4    ro,barrier=1,discard                                 wait,logical,first_stage_mount,nofail
+#endif
+/dev/block/by-name/metadata                             /metadata                ext4    noatime,nosuid,nodev,discard                         wait,formattable,wrappedkey,first_stage_mount
+/dev/block/bootdevice/by-name/cache                     /cache                   ext4    nosuid,noatime,nodev,barrier=1                       wait,check
+/dev/block/bootdevice/by-name/custom                    /my_custom             ext4    ro,barrier=1,discard                                   wait
+/dev/block/bootdevice/by-name/preload                   /special_preload         ext4    ro,barrier=1,discard                                 wait
+# Add fs_mgr flag - sysfs_path=/sys/devices/platform/soc/xxxx.[ufshc|sdhci] to userdata entry, based on UFS|eMMC device.
+/dev/block/bootdevice/by-name/userdata                  /data                    f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier,quota     latemount,wait,resize,check,formattable,fileencryption=ice,wrappedkey,quota,reservedsize=128M,checkpoint=fs
+/dev/block/bootdevice/by-name/persist                   /persist               ext4    noatime,nosuid,nodev,barrier=1                       wait,check
+/dev/block/bootdevice/by-name/misc                      /misc                  emmc    defaults                                             defaults
+/dev/block/bootdevice/by-name/modem                     /vendor/firmware_mnt   vfat    ro,shortname=lower,uid=1000,gid=1000,dmask=222,fmask=333,context=u:object_r:firmware_file:s0 wait
+/dev/block/bootdevice/by-name/dsp                       /vendor/dsp            ext4    ro,nosuid,nodev,barrier=1                            wait
+/dev/block/bootdevice/by-name/bluetooth                 /vendor/bt_firmware    vfat    ro,shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0 wait
