@@ -10,4 +10,3 @@ ro.boot.avb_version=1.0
 ro.boot.vbmeta.avb_version=1.0
 ro.product.product.device=RECE4244
 ro.boot.dynamic_partitions=true
-ro.treble.enabled=true
