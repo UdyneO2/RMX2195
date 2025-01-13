@@ -187,7 +187,7 @@ TW_EXTRA_LANGUAGES := false
 
 # Debug-tools
 TWRP_INCLUDE_LOGCAT := true
-TARGET_USES_LOGD := true
+#TARGET_USES_LOGD := true
 
 # Excludes
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
