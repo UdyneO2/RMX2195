@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 TeamWin Recovery Project
+# Copyright (C) 2024 TeamWin Recovery Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,16 +14,18 @@
 # limitations under the License.
 #
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# Inherit some common TWRP stuff.
-$(call inherit-product, vendor/twrp/config/common.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+
+# Inherit some common PBRP stuff.
+$(call inherit-product, vendor/pb/config/common.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := RMX2195
 PRODUCT_NAME := twrp_RMX2195
 PRODUCT_BRAND := realme
-PRODUCT_MODEL := realme C15 Qualcomm
+PRODUCT_MODEL := Realme C15 Qualcomm
 PRODUCT_MANUFACTURER := realme
 
 PRODUCT_SHIPPING_API_LEVEL := 29
