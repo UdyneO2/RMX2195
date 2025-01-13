@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 The Android Open Source Project
+# Copyright (C) 2024 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -162,7 +162,6 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
-TW_EXTRA_LANGUAGES := true
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
@@ -175,13 +174,16 @@ TW_OZIP_DECRYPT_KEY := 0000
 
 # Set brightness path and level
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
-TW_MAX_BRIGHTNESS := 2047
-TW_DEFAULT_BRIGHTNESS := 1200
+TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 116
 
-TW_EXCLUDE_TWRPAPP := true
+TW_EXCLUDE_TWRPAPP := false
 TW_HAS_EDL_MODE := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_RESETPROP := true
+
+TW_DEFAULT_LANGUAGE := en
+TW_EXTRA_LANGUAGES := false
 
 # Debug-tools
 TWRP_INCLUDE_LOGCAT := true
