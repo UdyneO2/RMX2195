@@ -1,3 +1,0 @@
-
-add_lunch_combo twrp_RMX2195-eng
-add_lunch_combo twrp_RMX2195-userdebug
