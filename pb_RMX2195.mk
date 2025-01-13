@@ -23,7 +23,7 @@ $(call inherit-product, vendor/pb/config/common.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := RMX2195
-PRODUCT_NAME := twrp_RMX2195
+PRODUCT_NAME := pb_RMX2195
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := Realme C15 Qualcomm
 PRODUCT_MANUFACTURER := realme
