@@ -1,11 +1,11 @@
 #
-# Copyright (C) 2021 TeamWin Recovery Project
+# Copyright 2018 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,37 +14,24 @@
 # limitations under the License.
 #
 
+# Release name
+PRODUCT_RELEASE_NAME := RMX2195
+DEVICE_PATH := device/realme/RMX2195
 
-# Inherit some common TWRP stuff.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+
+# Inherit from our custom product configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
-# Device identifier. This must come after all inclusions
+# Inherit device configuration
+$(call inherit-product, device/realme/RMX2195/device.mk)
+
+## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := RMX2195
 PRODUCT_NAME := twrp_RMX2195
 PRODUCT_BRAND := realme
-PRODUCT_MODEL := realme C15 Qualcomm
+PRODUCT_MODEL := RMX2195
 PRODUCT_MANUFACTURER := realme
 
-PRODUCT_SHIPPING_API_LEVEL := 29
-
-# Dynamic partition stuff
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
-
-# Apex libraries
-# PRODUCT_COPY_FILES += \
-   # $(OUT_DIR)/target/product/$(PRODUCT_RELEASE_NAME)/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libandroidicu.so \
-   # $(OUT_DIR)/target/product/$(PRODUCT_RELEASE_NAME)/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libcuuc.so
-
-# Fastbootd stuff
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock
-
-PRODUCT_PACKAGES_ENG += \
-    qcom_decrypt \
-    qcom_decrypt_fbe
-
-# Bypass anti-rollback ROMs protection
-# Set build date to Jan 1 2009 00:00:00
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.date.utc=1230768000
+# TWRP version
+TW_DEVICE_VERSION  := udyneos
