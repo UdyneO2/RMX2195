@@ -37,7 +37,7 @@ fi
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
    	export TW_DEFAULT_LANGUAGE="en"
 	export LC_ALL="C"
-        export TARGET_DEVICE_ALT="RMX2195"
+        export TARGET_DEVICE_ALT="RMX2195,RECE4244,RMX2101"
  	export ALLOW_MISSING_DEPENDENCIES=true
 	export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
 	export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
@@ -61,13 +61,14 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_USE_NANO_EDITOR=1
 	export OF_IGNORE_LOGICAL_MOUNT_ERRORS=1
         export OF_FBE_METADATA_MOUNT_IGNORE=1
+        export OF_ADVANCED_SECURITY=1
+        export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
+        
 
         # OTA
         export OF_KEEP_DM_VERITY=1
         export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
-        export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
-        export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
-
+        export OF_SUPPORT_OZIP_DECRYPTION=1
 	# Screen settings
         export OF_SCREEN_H=1600
         export OF_STATUS_H=80
@@ -76,8 +77,9 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_CLOCK_POS=1
 
 	# R12.1 Settings
-	export FOX_MAINTAINER_PATCH_VERSION="3"
+	export FOX_MAINTAINER_PATCH_VERSION="5"
 	export OF_MAINTAINER="mnrdnn."
+	export FOX_VARIANT="UI2"
 
 	# let's see what are our build VARs
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then

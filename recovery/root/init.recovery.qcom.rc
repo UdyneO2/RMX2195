@@ -61,7 +61,9 @@ service patchfstab /system/bin/patchfstab.sh
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-
+    # OTG
+    write /sys/class/power_supply/usb/otg_switch 1
+     
 on boot
     chmod 777 /system/bin/variant-script.sh
     start variant-script
